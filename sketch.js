@@ -1,5 +1,10 @@
 var car, wall;
 var weight, speed;
+var carImage;
+
+function preload(){
+ carImage=loadImage("car.jpg");
+}
 
 function setup () {
   createCanvas(1600,400);
@@ -7,6 +12,7 @@ function setup () {
   speed=random(55,90);
 
   car=createSprite(50,200,50,50);
+  car.addImage(carImage);
   wall=createSprite(1500,200,60,height/2);
   wall.shapeColor="grey";
 
@@ -37,6 +43,7 @@ function collide(){
     }
     if(deformation<100){
       car.shapeColor=color(0,255,0);
+      
       textSize(30);
       fill("green");
       text("No effect on Passengers",600,200);
